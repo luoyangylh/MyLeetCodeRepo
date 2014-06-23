@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,28 +10,33 @@ import java.util.ArrayList;
  */
 public class BinaryTreeInorderTraversal {
     public ArrayList<Integer> inorderTraversal(TreeNode root) {
-        ArrayList<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<Integer>();
+        Stack<TreeNode> tree = new Stack<TreeNode>();
 
-        if (root == null) {
-            return res;
-        }
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode t = root;
+        if (root == null) return res;
+        tree.push(root);
 
-        while (!stack.empty() || t != null) {
-            if (t != null) {
-                stack.push(t);
-                t = t.left;
-            } else {
-                TreeNode node = stack.pop();
-                res.add(node.val);
-                t = node.right;
+        while (!tree.empty()) {
+            while (root.left != null) {
+                tree.push(root.left);
+                root = root.left;
             }
 
+            TreeNode past = null;
 
+            while(!tree.empty()) {
+                TreeNode p = tree.pop();
+                if (p.right == past || p.right == null) {
+                    res.add(p.val);
+                    past = p;
+                } else {
+                    tree.push(p);
+                    tree.push(p.right);
+                    root = p.right;
+                    break;
+                }
+            }
         }
-
         return res;
-
     }
 }

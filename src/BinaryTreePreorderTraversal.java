@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +16,8 @@ public class BinaryTreePreorderTraversal {
             return res;
 
         Stack<TreeNode> tree = new Stack<TreeNode>();
+
+
         tree.push(root);
 
         while (tree.size() != 0) {
@@ -30,7 +33,5 @@ public class BinaryTreePreorderTraversal {
         }
 
         return res;
-
-
     }
 }
