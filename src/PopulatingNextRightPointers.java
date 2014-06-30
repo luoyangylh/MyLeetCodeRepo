@@ -12,7 +12,7 @@ class TreeLinkNode {
     TreeLinkNode(int x) { val = x; }
 }
 
- public class PopulatingNextRightPointers {
+public class PopulatingNextRightPointers {
     public void connect(TreeLinkNode root) {
         if (root == null) {
             return;
@@ -33,8 +33,5 @@ class TreeLinkNode {
                 connect(root.right);
             }
         }
-
-
-
     }
 }
