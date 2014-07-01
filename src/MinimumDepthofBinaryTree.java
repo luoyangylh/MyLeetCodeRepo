@@ -9,6 +9,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 public class Solution {
     public int minDepth(TreeNode root) {
     	boolean hasBrother = false;
