@@ -5,6 +5,9 @@
  * Time: 10:56 PM
  * To change this template use File | Settings | File Templates.
  */
+
+// use dynamic programming
+// compared to II, which use dfs instead of dp
 public class UniqueBinarySearchTrees {
     public int numTrees(int n) {
         int[] res = new int[n+1];
