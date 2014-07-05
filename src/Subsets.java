@@ -9,7 +9,7 @@ public class Solution {
     		res.add(new ArrayList<Integer>());
     	Arrays.sort(S);
     	int len = S.length;
-    	for (int i = 0; i <= len; i++) {
+    	for (int i = 0; i < len; i++) {
     		int size = res.size();
     		for (int j = 0; j < size; j++) {
     			List<Integer> tmp = new ArrayList<Integer>(res.get(j));
