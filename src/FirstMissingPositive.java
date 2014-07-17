@@ -10,7 +10,7 @@ public class Solution {
     		}
     		if (A[i] > positive) {
     			return positive;
-    		} else if (A[i] == positive){
+    		} else if (A[i] == positive) {
     			positive++;
     		}
     	}
