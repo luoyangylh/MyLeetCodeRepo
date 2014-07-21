@@ -14,26 +14,24 @@
 public class Solution {
     public ListNode rotateRight(ListNode head, int n) {
     	if (head == null || n == 0) return head;
-    	
-        ListNode pre = new ListNode(-1);
-        pre.next = head;
-        ListNode p = head;
-        ListNode q = head;
-
-        for (int i = 0; i < n; i++) {
-        	p = p.next;
-        }
-        if (p == null) return head;
-
-        while (p != null && p.next != null) {
-        	p = p.next;
-        	q = q.next;
+    	ListNode p = head;
+        
+        int len = 1;
+        while (p.next != null) {
+            p = p.next;
+            len++;
         }
 
-        p.next = pre.next;
-        pre.next = q.next;
-        q.next = null;
+        p.next = head;
+        int k = n % len;
 
-        return pre.next;
+        for (int i = 0; i < len - k; i++) {
+            p = p.next;
+        }
+        ListNode res = p.next;
+        p.next = null;
+
+        return res;
+    
     }
 }
